@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Game</title>
+    <style>
+      * {
+        background-color: cornsilk;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* border: 2px solid black; */
+        height: 80px;
+        padding-top: 18px;
+      }
+      .container h1 {
+        text-align: center;
+      }
+      .imag {
+        /* border: 2px solid black; */
+        height: 150px;
+        width: auto;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 15%;
+        cursor: pointer;
+        transform: translate(1%, 1%);
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      img:hover {
+        animation: rotate 1s linear;
+      }
+
+      .dice {
+        height: 140px;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 5%;
+      }
+      .h {
+        font-size: 50px;
+      }
+      .text {
+        /* border: 2px solid; */
+        margin-top: 20%;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      .text h2 {
+        text-align: center;
+        /* cursor: pointer; */
+      }
+      .this {
+        text-decoration: underline;
+        color: blue;
+      }
+      .footer {
+        /* border: 2px solid; */
+        text-align: center;
+        margin-top: 20%;
+        /* margin-right: 5%; */
+      }
+      .flast {
+        border: 2px solid black;
+        color: white;
+        text-align: center;
+        height: 30px;
+        margin-top: 57%;
+        background-color: black;
+        padding-top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <audio src="audio.mp3" id="ad"></audio>
+    <div class="container">
+      <h1 class="h">Dice Game</h1>
+    </div>
+    <div class="imag">
+      <img src="dice.png" class="dice" id="images" onclick="aud()" />
+    </div>
+    <div class="text">
+      <h2>Click the above dice for outcome.</h2>
+    </div>
+    <div class="footer">
+      <h3>Made by: Shashank</h3>
+    </div>
+    <div class="flast">All rights reserved by : Shashank Pandey</div>
+
+    <script>
+      function aud() {
+        document.getElementById("ad").play();
+
+        const time = setTimeout(print, 1100);
+      }
+      function print() {
+        let d = number();
+        alert(`Your dice no. is : ${d}`);
+        if (d === 6) {
+          alert("Roll the dice again, its your turn.");
+        }
+        window.location.reload(true);
+      }
+
+      function number() {
+        let dice = Math.trunc(Math.random() * 6) + 1;
+        // alert(`Your dice no. is : ${dice}`);
+
+        // if (dice === 6) {
+        // alert("Roll the dice again, it's your turn");
+        // }
+
+        return dice;
+      }
+    </script>
+  </body>
+</html>
